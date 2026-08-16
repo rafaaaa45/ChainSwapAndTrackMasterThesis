@@ -1,0 +1,342 @@
+:root {
+    --primary: #00ffcc;
+    --secondary: #00d9ff;
+    --bg: #0a0a0a;
+    --card: #141414;
+    --text: #e0e0e0;
+    --border: #333;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+h4 {
+    margin-top: 0;
+    color: #666;
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+}
+
+.tab {
+    padding: 12px 24px;
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: 0.2s;
+}
+
+.tab:hover {
+    color: var(--primary);
+}
+
+.tab.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.card {
+    background: var(--card);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-header {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: #999;
+    letter-spacing: 1px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 0.85rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input,
+select {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border 0.2s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+button {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--bg);
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.2s;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 255, 204, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--bg);
+    border-radius: 6px;
+    border-left: 4px solid var(--border);
+    animation: fadeIn 0.3s;
+}
+
+.result.success {
+    border-left-color: var(--primary);
+}
+
+.result.error {
+    border-left-color: #ff4444;
+}
+
+.result-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.result-data {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #aaa;
+}
+
+.result-data div {
+    margin-bottom: 5px;
+}
+
+.result-data strong {
+    color: var(--text);
+    display: inline-block;
+    min-width: 150px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.loading {
+    display: inline-block;
+    margin-left: 10px;
+    color: var(--primary);
+}
+
+/* ==========================================================================
+   TIMELINE DE AUDITORIA CROSS-CHAIN
+   ========================================================================== */
+
+.timeline-container {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    color: #fff;
+    animation: fadeIn 0.3s;
+}
+
+.timeline-title {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background-color: #333;
+}
+
+.timeline-step {
+    position: relative;
+    margin-bottom: 25px;
+    padding-left: 20px;
+}
+
+.step-icon {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #222;
+    border: 2px solid #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.step-content h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.step-content p {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: #aaa;
+    word-break: break-all;
+    font-family: 'Courier New', monospace;
+}
+
+.status-badge {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Completed state */
+.timeline-step.completed .step-icon {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #000;
+}
+.timeline-step.completed h4 {
+    color: var(--primary);
+}
+.status-badge.success {
+    background-color: rgba(0, 255, 204, 0.2);
+    color: var(--primary);
+}
+
+/* Processing state */
+.timeline-step.processing .step-icon {
+    border-color: #ffcc00;
+    color: #ffcc00;
+    animation: spin 2s linear infinite;
+}
+.timeline-step.processing h4 {
+    color: #ffcc00;
+}
+.status-badge.pending {
+    background-color: rgba(255, 204, 0, 0.2);
+    color: #ffcc00;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================================================
+   BATCH VALIDATION INFO CARD
+   ========================================================================== */
+
+.card-subtitle {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.card-subtitle code {
+    color: #999;
+    font-family: 'Courier New', monospace;
+    background: var(--bg);
+    padding: 1px 5px;
+    border-radius: 3px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChainGuard - Blockchain Validator</title>
+    <link rel="stylesheet" href="public/styles.css">
+</head>
+<body>
+    <h1>ChainGuard</h1>
+    <h4>Ethereum &rarr; Polygon Transaction Validator</h4>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Validate Transaction</div>
+
+            <div class="input-group">
+                <label>Select Network</label>
+                <select id="chain"></select>
+
+                <label>Transaction Hash</label>
+                <input type="text" id="val-hash" placeholder="0x..." autocomplete="off">
+
+                <button onclick="validate()" id="btn-val">Validate Transaction</button>
+            </div>
+
+            <div id="result"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Batch Validation</div>
+            <p class="card-subtitle">
+                Need to validate many transactions at once? Use the
+                <code>POST /api/validate-batch</code> endpoint with a JSON file
+                (<code>multipart/form-data</code>, field name <code>file</code>) containing an array like
+                <code>[{"chain": "ETH", "hash": "0x..."}]</code>.
+            </p>
+        </div>
+    </div>
+
+    <script src="public/app.js"></script>
+</body>
+</html>
